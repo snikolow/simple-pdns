@@ -1,0 +1,15 @@
+.idea/
+
+docker-compose.override.yml
+docker-compose.consumers.override.yml
+
+!/www/var/cache/.gitkeep
+!/www/var/log/.gitkeep
+
+/www/node_modules
+/www/public/build
+
+/www/.env
+/www/var/cache/*
+/www/var/log/*
+/www/vendor

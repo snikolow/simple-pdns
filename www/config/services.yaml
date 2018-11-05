@@ -1,0 +1,16 @@
+parameters:
+    locale: 'en'
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Devzone\:
+        resource: '../src/*'
+        exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
+
+    Devzone\Action\:
+        resource: '../src/Action'
+        tags: ['controller.service_arguments']
