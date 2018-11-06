@@ -1,6 +1,5 @@
 {% embed 'base.html.twig' %}
-    {% set pageTitle = 'Dashboard' %}
-    {% set mainTitle = 'Dashboard' %}
+    {% set pageTitle = 'page_titles.dashboard' | trans({}, 'titles') %}
 
     {% block body %}
     <div class="row">

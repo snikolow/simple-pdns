@@ -1,0 +1,10 @@
+default_list_title: List entries
+
+page_titles:
+    dashboard: Dashboard
+    domains: Domains
+    records: Records
+
+form_titles:
+    domains: Manage domain
+    records: Manage record

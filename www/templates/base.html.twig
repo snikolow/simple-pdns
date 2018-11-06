@@ -15,12 +15,6 @@
         <![endif]-->
     </head>
     <body>
-        {#<div class="preloader">#}
-            {#<div class="lds-ripple">#}
-                {#<div class="lds-pos"></div>#}
-                {#<div class="lds-pos"></div>#}
-            {#</div>#}
-        {#</div>#}
         <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full" data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
             <header class="topbar" data-navbarbg="skin5">
                 <nav class="navbar top-navbar navbar-expand-md navbar-dark">
@@ -33,8 +27,8 @@
                 <div class="page-breadcrumb">
                     <div class="row align-items-center">
                         <div class="col-12">
-                            {% if mainTitle is defined %}
-                            <h4 class="page-title">{{ mainTitle }}</h4>
+                            {% if pageTitle is defined %}
+                            <h4 class="page-title">{{ pageTitle }}</h4>
                             {% endif %}
                             <div class="d-flex align-items-center">
                                 <nav aria-label="breadcrumb">
