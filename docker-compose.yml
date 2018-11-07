@@ -60,6 +60,10 @@ services:
             - 'traefik.port=9000'
             - 'traefik.frontend.rule=Host:adminer.${PROJECT_BASE_URL}'
 
+    redis:
+        image: wodby/redis:$REDIS_TAG
+        container_name: "${PROJECT_NAME}_redis"
+
     traefik:
         image: traefik
         container_name: "${PROJECT_NAME}_traefik"

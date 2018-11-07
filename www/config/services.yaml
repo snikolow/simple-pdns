@@ -14,3 +14,7 @@ services:
     Devzone\Action\:
         resource: '../src/Action'
         tags: ['controller.service_arguments']
+
+    Devzone\EventListener\DomainListener:
+        tags:
+            - { name: doctrine.event_subscriber }

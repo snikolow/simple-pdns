@@ -1,1 +1,5 @@
 add_entry: Add entry
+add_domain:
+    master: Add Master
+    slave: Add Slave
+    native: Add Native

@@ -49,11 +49,6 @@ class Sidebar
                 'location' => $this->router->generate('action.domain.index'),
                 'icon' => 'fa fa-plus-square',
             ],
-            [
-                'label' => $this->translator->trans('records', [], 'sidebar'),
-                'location' => $this->router->generate('action.record.index'),
-                'icon' => 'fa fa-plus-square',
-            ],
         ];
     }
 

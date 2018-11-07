@@ -4,10 +4,17 @@
     {% block body %}
         <div class="row">
             <div class="col-12 mb-2">
-                <a href="{{ path('action.domain.create') }}" class="btn btn-primary btn-sm">
-                    <i class="fa fa-plus"></i>
-                    {{ 'add_entry' | trans({}, 'buttons') }}
-                </a>
+                {% for domainType in ['master', 'slave', 'native'] %}
+                    {% set buttonClasses = ['btn', 'btn-primary', 'btn-sm'] %}
+                    {% if domainType != 'master' %}
+                        {% set buttonClasses = buttonClasses | merge(['disabled']) %}
+                    {% endif %}
+
+                    <a href="{{ path('action.domain.create', {type: domainType}) }}" class="{{ buttonClasses | join(' ') }}">
+                        <i class="fa fa-plus"></i>
+                        {{ ('add_domain.' ~ domainType) | trans({}, 'buttons') }}
+                    </a>
+                {% endfor %}
             </div>
         </div>
         <div class="row">

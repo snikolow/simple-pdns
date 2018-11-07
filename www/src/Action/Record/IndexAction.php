@@ -2,7 +2,6 @@
 
 namespace Devzone\Action\Record;
 
-use Devzone\Action\Contract\ActionInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -12,7 +11,7 @@ use Twig\Environment;
  * Class IndexAction
  * @package Devzone\Action\Record
  */
-class IndexAction implements ActionInterface
+class IndexAction
 {
 
     /**
