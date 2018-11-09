@@ -33,7 +33,7 @@ class IndexAction
      *
      * @param Request $request
      *
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function __invoke(Request $request): Response
     {

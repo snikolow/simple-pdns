@@ -6,6 +6,8 @@ use Devzone\Entity\Domain;
 use Devzone\Enum\DomainTypesEnum;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -18,7 +20,7 @@ class DomainType extends AbstractType
 {
 
     /**
-     * @param \Symfony\Component\Form\FormBuilderInterface $builder
+     * @param FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -26,15 +28,33 @@ class DomainType extends AbstractType
         $builder->add('name', TextType::class, [
             'label' => 'domain.name',
         ]);
+        $builder->add('primary', TextType::class, [
+            'label' => 'domain.primary',
+        ]);
+        $builder->add('refresh', NumberType::class, [
+            'label' => 'domain.refresh',
+        ]);
+        $builder->add('expire', NumberType::class, [
+            'label' => 'domain.expire',
+        ]);
+        $builder->add('retry', NumberType::class, [
+            'label' => 'domain.retry',
+        ]);
+        $builder->add('ttl', NumberType::class, [
+            'label' => 'domain.ttl',
+        ]);
         $builder->add('type', ChoiceType::class, [
             'label' => 'domain.type',
             'choices' => DomainTypesEnum::getOptions(),
             'disabled' => true,
         ]);
+        $builder->add('email', EmailType::class, [
+            'label' => 'domain.email',
+        ]);
     }
 
     /**
-     * @param \Symfony\Component\OptionsResolver\OptionsResolver $resolver
+     * @param OptionsResolver $resolver
      */
     public function configureOptions(OptionsResolver $resolver)
     {

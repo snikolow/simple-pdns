@@ -1,3 +1,9 @@
 domain:
     name: Name
     type: Type
+    primary: Primary
+    refresh: Refresh
+    expire: Expire
+    retry: Retry
+    ttl: TTL
+    email: E-mail

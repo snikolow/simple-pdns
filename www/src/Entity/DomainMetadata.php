@@ -59,7 +59,7 @@ class DomainMetadata
     }
 
     /**
-     * @return \Devzone\Entity\DomainMetadata
+     * @return DomainMetadata
      */
     public function getDomain()
     {
@@ -67,7 +67,7 @@ class DomainMetadata
     }
 
     /**
-     * @param \Devzone\Entity\DomainMetadata $domain
+     * @param DomainMetadata $domain
      */
     public function setDomain($domain)
     {

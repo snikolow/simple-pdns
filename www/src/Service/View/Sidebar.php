@@ -24,8 +24,8 @@ class Sidebar
 
     /**
      * Sidebar constructor.
-     * @param \Symfony\Component\Routing\RouterInterface $router
-     * @param \Symfony\Component\Translation\TranslatorInterface $translator
+     * @param RouterInterface $router
+     * @param TranslatorInterface $translator
      */
     public function __construct(RouterInterface $router, TranslatorInterface $translator)
     {

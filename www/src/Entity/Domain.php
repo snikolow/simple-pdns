@@ -16,6 +16,8 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 class Domain
 {
 
+    use Traits\DomainExtraTrait;
+
     /**
      * @ORM\Column(type="integer")
      * @ORM\Id()

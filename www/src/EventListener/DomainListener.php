@@ -25,7 +25,7 @@ class DomainListener implements EventSubscriber
     }
 
     /**
-     * @param \Doctrine\ORM\Event\LifecycleEventArgs $eventArgs
+     * @param LifecycleEventArgs $eventArgs
      */
     public function prePersist(LifecycleEventArgs $eventArgs)
     {
@@ -39,7 +39,7 @@ class DomainListener implements EventSubscriber
     }
 
     /**
-     * @param \Doctrine\ORM\Event\LifecycleEventArgs $eventArgs
+     * @param LifecycleEventArgs $eventArgs
      */
     public function preUpdate(LifecycleEventArgs $eventArgs)
     {

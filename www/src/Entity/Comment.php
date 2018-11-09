@@ -76,7 +76,7 @@ class Comment
     }
 
     /**
-     * @return \Devzone\Entity\Domain
+     * @return Domain
      */
     public function getDomain()
     {
@@ -84,7 +84,7 @@ class Comment
     }
 
     /**
-     * @param \Devzone\Entity\Domain $domain
+     * @param Domain $domain
      */
     public function setDomain($domain)
     {

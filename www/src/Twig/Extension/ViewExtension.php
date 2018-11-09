@@ -18,7 +18,7 @@ class ViewExtension extends \Twig_Extension
 
     /**
      * ViewExtension constructor.
-     * @param \Devzone\Service\View\Sidebar $sidebar
+     * @param Sidebar $sidebar
      */
     public function __construct(Sidebar $sidebar)
     {

@@ -30,7 +30,7 @@ class Record
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Devzone\Entity\Domain")
+     * @ORM\ManyToOne(targetEntity="Devzone\Entity\Domain", cascade={"all"})
      * @ORM\JoinColumn(name="domain_id", referencedColumnName="id", nullable=true)
      */
     private $domain;
@@ -97,7 +97,7 @@ class Record
     }
 
     /**
-     * @return \Devzone\Entity\Domain
+     * @return Domain
      */
     public function getDomain()
     {
@@ -105,7 +105,7 @@ class Record
     }
 
     /**
-     * @param \Devzone\Entity\Domain $domain
+     * @param Domain $domain
      */
     public function setDomain($domain)
     {

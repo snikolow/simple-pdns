@@ -15,7 +15,7 @@ abstract class BaseActionCreate
 {
 
     /**
-     * @var \Twig\Environment
+     * @var Environment
      */
     private $twig;
 
@@ -36,7 +36,7 @@ abstract class BaseActionCreate
 
     /**
      * IndexAction constructor.
-     * @param \Twig\Environment $twig
+     * @param Environment $twig
      * @param FormFactoryInterface $formFactory
      * @param EntityManagerInterface $entityManager
      * @param RouterInterface $router
@@ -54,7 +54,7 @@ abstract class BaseActionCreate
     }
 
     /**
-     * @return \Twig\Environment
+     * @return Environment
      */
     public function getTwig(): Environment
     {
@@ -62,7 +62,7 @@ abstract class BaseActionCreate
     }
 
     /**
-     * @return \Symfony\Component\Form\FormFactoryInterface
+     * @return FormFactoryInterface
      */
     public function getFormFactory(): FormFactoryInterface
     {
@@ -70,7 +70,7 @@ abstract class BaseActionCreate
     }
 
     /**
-     * @return \Doctrine\ORM\EntityManagerInterface
+     * @return EntityManagerInterface
      */
     public function getEntityManager(): EntityManagerInterface
     {
@@ -78,7 +78,7 @@ abstract class BaseActionCreate
     }
 
     /**
-     * @return \Symfony\Component\Routing\RouterInterface
+     * @return RouterInterface
      */
     public function getRouter(): RouterInterface
     {

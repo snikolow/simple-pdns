@@ -15,13 +15,13 @@ class IndexAction
 {
 
     /**
-     * @var \Twig\Environment
+     * @var Environment
      */
     private $twig;
 
     /**
      * IndexAction constructor.
-     * @param \Twig\Environment $twig
+     * @param Environment $twig
      */
     public function __construct(Environment $twig)
     {
@@ -33,7 +33,7 @@ class IndexAction
      *
      * @param Request $request
      *
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function __invoke(Request $request): Response
     {
