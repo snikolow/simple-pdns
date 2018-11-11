@@ -22,8 +22,6 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">{{ 'default_list_title' | trans({}, 'titles') }}</h4>
-                        <h6 class="card-subtitle">Using the most basic table markup, here’s how <code>.table</code>-based tables look in Bootstrap. All table styles are inherited in Bootstrap 4, meaning any nested tables will be styled in the same manner as the parent.</h6>
-                        <h6 class="card-title m-t-40"><i class="m-r-5 font-18 mdi mdi-numeric-1-box-multiple-outline"></i> Table With Outside Padding</h6>
                             <table class="table table-hover"
                                    data-role="domain-data-table"
                                    data-ajax="{{ path('action.domain.xhr.data_table') }}"
@@ -33,13 +31,15 @@
                                    data-searching="false"
                                    data-ordering="false"
                                    data-length-change="false"
+                                   data-edit-link-format="{{ path('action.domain.update', {id: '__ID__'}) }}"
+                                   data-record-link-format="{{ path('action.record.index', {domain: '__ID__'}) }}"
                                    style="width: 100%;"
                             >
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">Name</th>
-                                        <th>Actions</th>
+                                        <th scope="col">{{ 'domain.name' | trans({}, 'forms') }}</th>
+                                        <th>{{ 'general.actions' | trans({}, 'forms') }}</th>
                                     </tr>
                                 </thead>
                             </table>

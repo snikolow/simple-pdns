@@ -1,3 +1,6 @@
+general:
+    actions: Actions
+
 domain:
     name: Name
     type: Type

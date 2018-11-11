@@ -27,13 +27,20 @@ class Domain {
                     {'data': 'name'},
                     {
                         data: null,
-                        className: 'center',
+                        className: 'text-center',
                         render: function(data) {
+                            let editPath = $target.data('edit-link-format').replace('__ID__', data.id);
+                            let recordPath = $target.data('record-link-format').replace('__ID__', data.id);
+
                             return `
-                                <button class="btn btn-sm btn-default">
+                                <a href="${editPath}" class="btn btn-sm btn-warning">
                                     <i class="fa fa-pencil"></i>
                                     Edit
-                                </button>
+                                </a>
+                                <a href="${recordPath}" class="btn btn-sm btn-secondary">
+                                    <i class="fa fa-list"></i>
+                                    Records
+                                </a>
                             `;
                         }
                     }
