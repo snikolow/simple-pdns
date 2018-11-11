@@ -40,7 +40,9 @@ class IndexAction
     public function __invoke(Request $request, Domain $domain): Response
     {
         return new Response(
-            $this->twig->render('record/index.html.twig', [])
+            $this->twig->render('record/index.html.twig', [
+                'domain' => $domain,
+            ])
         );
     }
 

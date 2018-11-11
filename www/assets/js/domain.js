@@ -8,7 +8,7 @@ class Domain {
     }
 
     createDataTable() {
-        var $target = $('table[data-role="domain-data-table"]');
+        let $target = $('table[data-role="domain-data-table"]');
 
         if (!$target.length) {
             console.log('[Domain] Data table is missing!');

@@ -1,3 +1,42 @@
 {% embed 'base.html.twig' %}
     {% set pageTitle = 'page_titles.records' | trans({}, 'titles') %}
+
+    {% block body %}
+        <div class="row">
+            <div class="col-12 mb-2">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ 'default_list_title' | trans({}, 'titles') }}</h4>
+                        <table class="table table-hover"
+                               data-role="record-data-table"
+                               data-ajax="{{ path('action.record.xhr.data_table', {domain: domain.id}) }}"
+                               data-processing="true"
+                               data-server-side="true"
+                               data-page-length="10"
+                               data-searching="false"
+                               data-ordering="false"
+                               data-length-change="false"
+                               style="width: 100%;"
+                        >
+                            <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">{{ 'domain.name' | trans({}, 'forms') }}</th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+
+    {% block javascripts %}
+        <script type="text/javascript" src="{{ asset('build/js/pages/record.js') }}"></script>
+    {% endblock %}
 {% endembed %}
