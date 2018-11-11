@@ -23,6 +23,11 @@ class NotifiedSerialGenerator implements NotifiedSerialInterface
     }
 
     /**
+     * Generates new serial number for the domain.
+     *
+     * THe format used is for the current year/month/day
+     * and as an incremental value we start from 01.
+     *
      * @return int
      */
     private function createNumber(): int
@@ -33,6 +38,12 @@ class NotifiedSerialGenerator implements NotifiedSerialInterface
     }
 
     /**
+     * Updates an already generated serial number.
+     *
+     * For multiple updates on the same day we stick with
+     * year/month/day and we simply increment the last two
+     * digits by 1.
+     *
      * @param Domain $entity
      *
      * @return int

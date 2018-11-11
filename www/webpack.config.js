@@ -8,6 +8,7 @@ Encore
     .addEntry('js/custom', './assets/js/custom.js')
     .addEntry('js/sidebarmenu', './assets/js/sidebarmenu.js')
     .addEntry('js/waves', './assets/js/waves.js')
+    .addEntry('js/pages/domain', './assets/js/domain.js')
     .addStyleEntry('css/app', './assets/sass/style.scss')
     .cleanupOutputBeforeBuild()
     .enableBuildNotifications()

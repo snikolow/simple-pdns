@@ -2,31 +2,17 @@
 
 namespace Devzone\Action\Domain;
 
+use Devzone\Action\BaseIndexAction;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Twig\Environment;
 
 /**
  * Class IndexAction
  * @package Devzone\Action\Domain
  */
-class IndexAction
+class IndexAction extends BaseIndexAction
 {
-
-    /**
-     * @var Environment
-     */
-    private $twig;
-
-    /**
-     * IndexAction constructor.
-     * @param Environment $twig
-     */
-    public function __construct(Environment $twig)
-    {
-        $this->twig = $twig;
-    }
 
     /**
      * @Route("/domain", name="action.domain.index")
@@ -38,7 +24,7 @@ class IndexAction
     public function __invoke(Request $request): Response
     {
         return new Response(
-            $this->twig->render('domain/index.html.twig', [])
+            $this->getTwig()->render('domain/index.html.twig', [])
         );
     }
 
