@@ -18,7 +18,7 @@ class DomainTypeTest extends TypeTestCase
     {
         $formData = [
             'name' => 'example.org',
-            'primary' => 'ns1.example.org',
+            'primaryRecord' => 'ns1.example.org',
             'refresh' => 3600,
             'expire' => 604800,
             'retry' => 900,
@@ -29,7 +29,7 @@ class DomainTypeTest extends TypeTestCase
 
         $object = new Domain();
         $object->setName('example.org');
-        $object->setPrimary('ns1.example.org');
+        $object->setPrimaryRecord('ns1.example.org');
         $object->setEmail('admin@example.org');
 
         $compareObject = new Domain();
