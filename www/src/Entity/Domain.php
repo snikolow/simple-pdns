@@ -16,8 +16,6 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 class Domain
 {
 
-    use Traits\DomainExtraTrait;
-
     /**
      * @ORM\Column(type="integer")
      * @ORM\Id()
@@ -54,6 +52,36 @@ class Domain
      * @ORM\Column(type="string", length=40, nullable=true)
      */
     private $account;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $primaryRecord;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $refresh = 3600;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $expire = 604800;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $retry = 900;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $ttl = 86400;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $email;
 
     /**
      * @return int
@@ -165,6 +193,102 @@ class Domain
     public function setAccount($account)
     {
         $this->account = $account;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPrimaryRecord()
+    {
+        return $this->primaryRecord;
+    }
+
+    /**
+     * @param string $primary
+     */
+    public function setPrimaryRecord(string $primary)
+    {
+        $this->primaryRecord = $primary;
+    }
+
+    /**
+     * @return int
+     */
+    public function getRefresh()
+    {
+        return $this->refresh;
+    }
+
+    /**
+     * @param int $refresh
+     */
+    public function setRefresh(int $refresh)
+    {
+        $this->refresh = $refresh;
+    }
+
+    /**
+     * @return int
+     */
+    public function getExpire()
+    {
+        return $this->expire;
+    }
+
+    /**
+     * @param int $expire
+     */
+    public function setExpire(int $expire)
+    {
+        $this->expire = $expire;
+    }
+
+    /**
+     * @return int
+     */
+    public function getRetry()
+    {
+        return $this->retry;
+    }
+
+    /**
+     * @param int $retry
+     */
+    public function setRetry(int $retry)
+    {
+        $this->retry = $retry;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTtl()
+    {
+        return $this->ttl;
+    }
+
+    /**
+     * @param mixed $ttl
+     */
+    public function setTtl($ttl)
+    {
+        $this->ttl = $ttl;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     */
+    public function setEmail(string $email)
+    {
+        $this->email = $email;
     }
 
 }

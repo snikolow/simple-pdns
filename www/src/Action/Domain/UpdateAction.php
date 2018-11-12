@@ -27,7 +27,7 @@ class UpdateAction extends BaseUpdateAction
      */
     public function __invoke(Request $request, Domain $entity): Response
     {
-        $form = $this->getFormFactory()->create(DomainType::class, $entity);
+        $form = $this->getFormFactory()->create(DomainType::class, $entity, ['renderAllElements' => false]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

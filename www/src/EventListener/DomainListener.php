@@ -104,21 +104,27 @@ class DomainListener implements EventSubscriber
      */
     private function handleScheduledUpdates(array $collection)
     {
-        $classMetadata = null;
+        $domainClassMetadata = null;
+        $recordClassMetadata = null;
 
         foreach ($collection as $key => $entity) {
             if (!$entity instanceof Domain) {
                 continue;
             }
 
-            if (!$classMetadata) {
-                $classMetadata = $this->entityManager->getClassMetadata(Domain::class);
+            if (!$domainClassMetadata || !$$recordClassMetadata) {
+                $domainClassMetadata = $this->entityManager->getClassMetadata(Domain::class);
+                $recordClassMetadata = $this->entityManager->getClassMetadata(Record::class);
             }
 
             $entity->setNotifiedSerial($this->notifiedSerialGenerator->generate($entity));
 
             $this->entityManager->persist($entity);
-            $this->unitOfWork->recomputeSingleEntityChangeSet($classMetadata, $entity);
+            $this->unitOfWork->recomputeSingleEntityChangeSet($domainClassMetadata, $entity);
+
+            if ($record = $this->updateInitialDomainRecord($entity)) {
+                $this->unitOfWork->recomputeSingleEntityChangeSet($recordClassMetadata, $record);
+            }
         }
     }
 
@@ -131,11 +137,12 @@ class DomainListener implements EventSubscriber
     {
         $entity = new Record();
         $entity->setDomain($domain);
+        $entity->setTtl($domain->getTtl());
         $entity->setName($domain->getName());
         $entity->setType(RecordTypesEnum::TYPE_SOA);
         $entity->setContent(
             join(' ', array_map('trim', [
-                $domain->getPrimary(),
+                $domain->getPrimaryRecord(),
                 $domain->getEmail(),
                 $domain->getNotifiedSerial(),
                 $domain->getRefresh(),
@@ -146,6 +153,61 @@ class DomainListener implements EventSubscriber
         );
 
         return $entity;
+    }
+
+    /**
+     * Update the initial Record for given domain.
+     *
+     * This is a required step only for a Record with type "SOA", since it's "content"
+     * is managed automatically, based on the data provided for the related domain.
+     *
+     * For records with type other than "SOA", this step is not necessary, because
+     * "content" will be provided on form submission.
+     *
+     * @param Domain $domain
+     *
+     * @return Record|null
+     */
+    private function updateInitialDomainRecord(Domain $domain): ?Record
+    {
+        // Creating a query builder outside it's repository in most cases is considered against best practices.
+        // But in this case, we are using a different approach for managing Entity Repositories, one that would
+        // allow us to use Repositories in Services/Actions a lot more easily.
+        // In this case, if we try to inject RecordRepository as a direct dependency to this class, in general
+        // we will break the system by entering in Circular reference for EntityManager. Doctrine event listeners
+        // requires the EntityManager to be presented in all times, and we also depend on it in our BaseRepository -
+        // thus, entering in circular reference. Relying on the whole container is not a good idea as well.
+        // So, for the time being, this will remain as it is, until I figure out a better solution.
+        $record = $this->entityManager->createQueryBuilder()
+            ->select('record')
+            ->from('Devzone:Record', 'record')
+            ->innerJoin('record.domain', 'domain')
+            ->where('domain.id = :domainId')
+            ->andWhere('record.type = :type')
+            ->setParameters([
+                'domainId' => $domain->getId(),
+                'type' => RecordTypesEnum::TYPE_SOA,
+            ])
+            ->getQuery()
+            ->getSingleResult();
+
+        if (!$record instanceof Record) {
+            return null;
+        }
+
+        $record->setContent(
+            join(' ', array_map('trim', [
+                $domain->getPrimaryRecord(),
+                $domain->getEmail(),
+                $domain->getNotifiedSerial(),
+                $domain->getRefresh(),
+                $domain->getRetry(),
+                $domain->getExpire(),
+                $domain->getTtl()
+            ]))
+        );
+
+        return $record;
     }
 
 }

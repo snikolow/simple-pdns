@@ -47,7 +47,7 @@ abstract class BaseRepository
     {
         $this->entityManager = $entityManager;
 
-        if ($this->entityManager) {
+        if ($this->entityClass) {
             $this->repository = $this->entityManager->getRepository($this->entityClass);
         }
     }

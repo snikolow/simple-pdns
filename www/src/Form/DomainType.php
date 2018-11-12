@@ -25,12 +25,17 @@ class DomainType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name', TextType::class, [
-            'label' => 'domain.name',
-        ]);
-        $builder->add('primary', TextType::class, [
-            'label' => 'domain.primary',
-        ]);
+        if ($options['renderAllElements']) {
+            $builder->add('name', TextType::class, [
+                'label' => 'domain.name',
+            ]);
+            $builder->add('primaryRecord', TextType::class, [
+                'label' => 'domain.primary',
+            ]);
+            $builder->add('email', EmailType::class, [
+                'label' => 'domain.email',
+            ]);
+        }
         $builder->add('refresh', NumberType::class, [
             'label' => 'domain.refresh',
         ]);
@@ -48,9 +53,6 @@ class DomainType extends AbstractType
             'choices' => DomainTypesEnum::getOptions(),
             'disabled' => true,
         ]);
-        $builder->add('email', EmailType::class, [
-            'label' => 'domain.email',
-        ]);
     }
 
     /**
@@ -61,6 +63,7 @@ class DomainType extends AbstractType
         $resolver->setDefaults([
             'class' => Domain::class,
             'translation_domain' => 'forms',
+            'renderAllElements' => true,
         ]);
     }
 
