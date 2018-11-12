@@ -18,3 +18,7 @@ services:
     Devzone\EventListener\DomainListener:
         tags:
             - { name: doctrine.event_subscriber }
+
+    Devzone\EventListener\RecordListener:
+        tags:
+            - { name: doctrine.event_subscriber }

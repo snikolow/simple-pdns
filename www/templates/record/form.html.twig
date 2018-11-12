@@ -1,0 +1,27 @@
+{% embed 'base.html.twig' %}
+    {% import 'macros/form_helper.html.twig' as macros %}
+    {% set pageTitle = 'form_titles.records' | trans({}, 'titles') %}
+
+    {% block body %}
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        {{ form_start(form) }}
+                        {{ form_row(form.name) }}
+                        {% if form.children.type is defined %}
+                            {{ form_row(form.type) }}
+                        {% endif %}
+                        {{ form_row(form.content) }}
+                        {{ form_row(form.ttl) }}
+                        {{ form_row(form.priority) }}
+                        {{ form_row(form.disabled) }}
+                        {{ form_row(form.orderName) }}
+                        {{ macros.renderSubmitButton() }}
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+{% endembed %}

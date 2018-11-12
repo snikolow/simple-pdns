@@ -112,7 +112,7 @@ class DomainListener implements EventSubscriber
                 continue;
             }
 
-            if (!$domainClassMetadata || !$$recordClassMetadata) {
+            if (!$domainClassMetadata || !$recordClassMetadata) {
                 $domainClassMetadata = $this->entityManager->getClassMetadata(Domain::class);
                 $recordClassMetadata = $this->entityManager->getClassMetadata(Record::class);
             }

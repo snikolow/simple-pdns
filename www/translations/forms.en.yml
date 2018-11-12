@@ -10,3 +10,12 @@ domain:
     retry: Retry
     ttl: TTL
     email: E-mail
+
+record:
+    name: Name
+    type: Type
+    content: Content
+    ttl: TTL
+    priority: Priority
+    disabled: Disabled
+    order_name: Order Name

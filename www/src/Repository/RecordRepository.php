@@ -34,7 +34,8 @@ class RecordRepository extends BaseRepository
     public function getDataTableResultBuilder(Domain $domain): QueryBuilder
     {
         return $this->getBaseQueryBuilder($domain)
-            ->select('record.id', 'record.name');
+            ->select('record.id', 'record.name', 'record.type', 'record.ttl', 'record.priority')
+            ->addSelect('domain.id AS domainId');
     }
 
     /**

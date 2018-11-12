@@ -63,4 +63,16 @@ abstract class RecordTypesEnum extends AbstractEnum
         );
     }
 
+    /**
+     * @return array
+     */
+    public static function getOptionsForRecord(): array
+    {
+        return [
+            self::TYPE_A => self::TYPE_A,
+            self::TYPE_AAAA => self::TYPE_AAAA,
+            self::TYPE_CNAME => self::TYPE_CNAME,
+        ];
+    }
+
 }

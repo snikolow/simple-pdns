@@ -29,13 +29,13 @@ class DomainType extends AbstractType
             $builder->add('name', TextType::class, [
                 'label' => 'domain.name',
             ]);
-            $builder->add('primaryRecord', TextType::class, [
-                'label' => 'domain.primary',
-            ]);
             $builder->add('email', EmailType::class, [
                 'label' => 'domain.email',
             ]);
         }
+        $builder->add('primaryRecord', TextType::class, [
+            'label' => 'domain.primary',
+        ]);
         $builder->add('refresh', NumberType::class, [
             'label' => 'domain.refresh',
         ]);

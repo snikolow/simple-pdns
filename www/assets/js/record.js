@@ -24,7 +24,26 @@ class Record {
             {
                 columns: [
                     {'data': 'id'},
-                    {'data': 'name'}
+                    {'data': 'name'},
+                    {'data': 'type'},
+                    {'data': 'ttl'},
+                    {'data': 'priority'},
+                    {
+                        data: null,
+                        className: 'text-center',
+                        render: function(data) {
+                            let editPath = $target.data('edit-link-format')
+                                .replace('__ID__', data.id)
+                                .replace('__DOMAIN_ID__', data.domainId);
+
+                            return `
+                                <a href="${editPath}" class="btn btn-sm btn-warning">
+                                    <i class="fa fa-pencil"></i>
+                                    Edit
+                                </a>
+                            `;
+                        }
+                    }
                 ],
                 drawCallback: function(settings) {
                     // Wrap the table in table-responsive class after the ajax request has been made.
