@@ -1,12 +1,27 @@
 security:
+    encoders:
+        Devzone\Entity\Member:
+            algorithm: bcrypt
+            cost: 12
     providers:
-        in_memory: { memory: ~ }
+        orm:
+            entity:
+                class: Devzone\Entity\Member
+                property: username
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
-            anonymous: true
+            anonymous: ~
+            form_login:
+                login_path: action.security.login
+                check_path: action.security.login_check
+                default_target_path: action.dashboard.index
+            logout:
+                path: action.security.logout
+                target: /login
+
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/, roles: ROLE_USER }

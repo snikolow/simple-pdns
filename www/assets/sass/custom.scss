@@ -9,3 +9,28 @@ label {
     }
   }
 }
+
+.login-page {
+  background-color: #333;
+
+  #login-container {
+    width: 300px;
+    height: auto;
+    max-height: 300px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    @include media-breakpoint-up(md) {
+      width: 450px;
+    }
+
+    .card-header {
+      background-color: #00b0ff;
+      color: #fff;
+    }
+  }
+}

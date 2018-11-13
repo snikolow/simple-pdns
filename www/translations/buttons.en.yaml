@@ -1,4 +1,5 @@
 add_entry: Add entry
+login: Login
 add_domain:
     master: Add Master
     slave: Add Slave

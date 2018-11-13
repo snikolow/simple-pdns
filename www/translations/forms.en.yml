@@ -19,3 +19,7 @@ record:
     priority: Priority
     disabled: Disabled
     order_name: Order Name
+
+security:
+    email: E-mail
+    password: Password
