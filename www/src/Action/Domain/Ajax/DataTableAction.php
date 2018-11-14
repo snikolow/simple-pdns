@@ -30,7 +30,7 @@ class DataTableAction
     }
 
     /**
-     * @Route("/domain/xhr/data-table", name="action.domain.xhr.data_table")
+     * @Route("/domains/xhr/data-table", name="action.domain.xhr.data_table")
      *
      * @param Request $request
      *

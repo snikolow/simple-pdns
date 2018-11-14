@@ -18,7 +18,7 @@ class UpdateAction extends BaseUpdateAction
 {
 
     /**
-     * @Route("/domain/update/{id}", requirements={"id": "([__ID__])|([0-9]+)"}, name="action.domain.update")
+     * @Route("/domains/update/{id}", requirements={"id": "([__ID__])|([0-9]+)"}, name="action.domain.update")
      *
      * @param Request $request
      * @param Domain $entity

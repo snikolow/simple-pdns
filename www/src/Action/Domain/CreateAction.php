@@ -18,7 +18,7 @@ class CreateAction extends BaseActionCreate
 {
 
     /**
-     * @Route("/domain/create/{type}", requirements={"type": "(master|slave|native)"}, name="action.domain.create")
+     * @Route("/domains/create/{type}", requirements={"type": "(master|slave|native)"}, name="action.domain.create")
      *
      * @param Request $request
      * @param string $type

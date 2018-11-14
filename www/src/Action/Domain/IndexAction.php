@@ -15,7 +15,7 @@ class IndexAction extends BaseIndexAction
 {
 
     /**
-     * @Route("/domain", name="action.domain.index")
+     * @Route("/domains", name="action.domain.index")
      *
      * @param Request $request
      *
