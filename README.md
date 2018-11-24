@@ -38,4 +38,4 @@ SimplePDNS is based on:
     
 #### Developer note
 
-Although this project is fairy small and simple, it is still on process of development.
+Although this project is fairly small and simple, it is still on process of development.
