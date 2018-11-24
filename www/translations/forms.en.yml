@@ -24,3 +24,7 @@ security:
     email: E-mail
     password: Password
     display_name: Display name
+
+member:
+    username: E-mail
+    display_name: Display Name

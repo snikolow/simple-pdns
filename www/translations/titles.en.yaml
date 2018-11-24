@@ -4,9 +4,11 @@ page_titles:
     dashboard: Dashboard
     domains: Domains
     records: Records
+    members: Members
 
 form_titles:
     domains: Manage domain
     records: Manage record
+    members: Manage member
     profile_settings: My Profile
     change_password: Change Password

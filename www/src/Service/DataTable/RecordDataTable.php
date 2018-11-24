@@ -20,11 +20,11 @@ class RecordDataTable extends BaseDataTable
 
     /**
      * RecordDataTable constructor.
-     * @param RecordRepository $repositorye
+     * @param RecordRepository $repository
      */
-    public function __construct(RecordRepository $repositorye)
+    public function __construct(RecordRepository $repository)
     {
-        $this->repository = $repositorye;
+        $this->repository = $repository;
     }
 
     /**

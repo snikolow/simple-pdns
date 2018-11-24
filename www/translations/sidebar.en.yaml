@@ -1,6 +1,7 @@
 dashboard: Dashboard
 domains: Domains
 records: Records
+members: Members
 
 member:
     profile: My Profile
