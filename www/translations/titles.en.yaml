@@ -8,3 +8,5 @@ page_titles:
 form_titles:
     domains: Manage domain
     records: Manage record
+    profile_settings: My Profile
+    change_password: Change Password

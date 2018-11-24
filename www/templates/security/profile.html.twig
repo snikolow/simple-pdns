@@ -1,0 +1,19 @@
+{% embed 'base.html.twig' %}
+    {% import 'macros/form_helper.html.twig' as macros %}
+    {% set pageTitle = 'form_titles.profile_settings' | trans({}, 'titles') %}
+
+    {% block body %}
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        {{ form_start(form) }}
+                            {{ form_row(form.displayName) }}
+                            {{ macros.renderSubmitButton() }}
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+{% endembed %}

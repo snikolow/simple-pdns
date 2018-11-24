@@ -22,3 +22,7 @@ services:
     Devzone\EventListener\RecordListener:
         tags:
             - { name: doctrine.event_subscriber }
+
+    Devzone\EventListener\MemberListener:
+        tags:
+            - { name: doctrine.event_subscriber }

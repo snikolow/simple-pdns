@@ -1,3 +1,8 @@
 dashboard: Dashboard
 domains: Domains
 records: Records
+
+member:
+    profile: My Profile
+    change_password: Change Password
+    logout: Log-out
